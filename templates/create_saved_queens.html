@@ -1,0 +1,17 @@
+<h1>Save some queens</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name() }}
+    {{ form.queen_picks.label }} {{ form.queen_picks() }}
+    {{ form.submit() }}
+</form>
+<div>
+    {% for message in get_flashed_messages() %}
+    <strong>{{ message }}</strong>
+    {% endfor %}
+</div>
+{% endblock %}

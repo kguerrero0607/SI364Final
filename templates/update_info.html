@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="/update/{{ coll_name }}">
+    {{ form.hidden_tag() }}
+    {{form.new_name.label }} {{ form.new_name() }}
+    {{ form.submit() }}
+</form>
+
+{% endblock %}

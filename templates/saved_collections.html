@@ -1,0 +1,33 @@
+<h1>My saved queens</h1>
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    {% for message in get_flashed_messages() %}
+    <strong>{{ message }}</strong>
+    {% endfor %}
+</div>
+
+
+<ul>
+    {% for x in collections %}
+    <h4>
+        {{ x.name }}
+    </h4>
+    {% for q in x.queens %}
+    <li>{{ q.name }}</li>
+    {% endfor %}
+    <form method="POST" action="/update/{{ x.name }}">
+        {{ formup.hidden_tag() }}
+        {{ formup.submit() }}
+    </form>
+    <form method="POST" action="/delete/{{ x.name }}">
+        {{ formdel.hidden_tag() }}
+        {{ formdel.submit() }}
+    </form>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

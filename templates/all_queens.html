@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<ul>
+    {% for q in queens %}
+    <li><a href="/{{ q }}">{{ q }}</a></li><br>
+    {% endfor %}
+</ul>
+
+{% if not queens %}
+You haven't searched for any queens yet
+{% endif %}
+
+{% endblock %}

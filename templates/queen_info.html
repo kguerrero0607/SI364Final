@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ queen.name }}</h1>
+
+<h3>Quote(s)...</h3>
+<ul>
+    {% for x in quotes %}
+    <li>"{{ x.text }}"</li>
+    {% endfor %}
+</ul>
+
+{% if not maxi_chal %}
+<h3>This queen won no Maxi Challenges.</h3>
+{% else %}
+<h3>Maxi Challenges won...</h3>
+{% endif %}
+
+<ul>
+    {% for c in maxi_chal %}
+    <li><i>{{ c[0] }}</i> - {{ c[1] }}</li>
+    {% endfor %}
+</ul>
+
+{% if not mini_chal %}
+<h3>This queen won no Mini Challenges.</h3>
+{% else %}
+<h3>Mini Challenges won...</h3>
+{% endif %}
+
+<ul>
+    {% for c in mini_chal %}
+    <li><i>{{ c[0] }}</i> - {{ c[1] }}</li>
+    {% endfor %}
+</ul>
+
+
+<div>
+    {% for message in get_flashed_messages() %}
+    <strong>{{ message }}</strong>
+    {% endfor %}
+</div>
+
+{% endblock %}
